@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { Open_Sans, Roboto } from "next/font/google";
 import { AppShell } from "@/components/shared/app-shell";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-headline",
+  weight: ["600", "700"],
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
   title: "CafeFlow",
@@ -15,15 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&family=Roboto:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-body antialiased">
+      <body
+        className={cn(
+          "font-body antialiased",
+          openSans.variable,
+          roboto.variable
+        )}
+      >
         <AppShell>{children}</AppShell>
         <Toaster />
       </body>
