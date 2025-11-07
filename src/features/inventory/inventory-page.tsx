@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,11 +29,23 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { inventoryData } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
-import { PlusCircle } from "lucide-react";
+import { PlusCircle, Loader } from "lucide-react";
+import { AppDispatch, RootState } from '@/lib/redux/store';
+import { fetchInventory, selectInventoryItems, selectInventoryStatus } from './inventory-slice';
 
 export default function InventoryPage() {
+  const dispatch = useDispatch<AppDispatch>();
+  const inventoryItems = useSelector(selectInventoryItems);
+  const status = useSelector(selectInventoryStatus);
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchInventory());
+    }
+  }, [status, dispatch]);
+
+
   return (
     <Card>
       <CardHeader>
@@ -88,6 +104,13 @@ export default function InventoryPage() {
         </div>
       </CardHeader>
       <CardContent>
+        {status === 'loading' && (
+            <div className="flex items-center justify-center p-8">
+                <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
+                <p className="ml-2">Loading inventory...</p>
+            </div>
+        )}
+        {status === 'succeeded' && (
         <Table>
           <TableHeader>
             <TableRow>
@@ -99,7 +122,7 @@ export default function InventoryPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {inventoryData.map((item) => (
+            {inventoryItems.map((item) => (
               <TableRow key={item.id}>
                 <TableCell className="font-medium">{item.name}</TableCell>
                 <TableCell>{item.category}</TableCell>
@@ -123,6 +146,8 @@ export default function InventoryPage() {
             ))}
           </TableBody>
         </Table>
+        )}
+        {status === 'failed' && <p className="text-destructive text-center">Failed to load inventory.</p>}
       </CardContent>
     </Card>
   );

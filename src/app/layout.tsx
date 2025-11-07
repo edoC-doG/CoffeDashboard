@@ -4,6 +4,7 @@ import { AppShell } from "@/components/shared/app-shell";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import StoreProvider from "@/lib/redux/StoreProvider";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -36,8 +37,10 @@ export default function RootLayout({
           roboto.variable
         )}
       >
-        <AppShell>{children}</AppShell>
-        <Toaster />
+        <StoreProvider>
+          <AppShell>{children}</AppShell>
+          <Toaster />
+        </StoreProvider>
       </body>
     </html>
   );
