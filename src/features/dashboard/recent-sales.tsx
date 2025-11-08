@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
-import { salesData } from "@/lib/data";
+import { getPlaceholderImage } from "@/shared/lib/placeholder-images";
+import { salesData } from "@/shared/lib/data";
 
 export function RecentSales() {
   const recentSales = salesData.slice(0, 5);

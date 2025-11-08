@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { PlusCircle, Loader } from "lucide-react";
-import { AppDispatch, RootState } from '@/lib/redux/store';
+import { AppDispatch, RootState } from '@/shared/lib/redux/store';
 import { fetchInventory, selectInventoryItems, selectInventoryStatus } from './inventory-slice';
 
 export default function InventoryPage() {

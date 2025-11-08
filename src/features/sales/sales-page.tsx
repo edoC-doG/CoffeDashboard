@@ -23,7 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { salesData } from "@/lib/data";
+import { salesData } from "@/shared/lib/data";
 import { Badge } from "@/components/ui/badge";
 
 export default function SalesPage() {

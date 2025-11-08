@@ -13,7 +13,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import { orderData, OrderStatus } from "@/lib/data";
+import { orderData, OrderStatus } from "@/shared/lib/data";
 import { Button } from "@/components/ui/button";
 
 const statusTabs: { status: OrderStatus; label: string }[] = [

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '@/lib/redux/store';
-import { inventoryData as mockInventoryData } from '@/lib/data';
-import axios from '@/lib/axios'; // Using the configured instance, though not for a real API call here
+import type { RootState } from '@/shared/lib/redux/store';
+import { inventoryData as mockInventoryData } from '@/shared/lib/data';
+import axios from '@/shared/lib/axios'; // Using the configured instance, though not for a real API call here
 
 // Define a type for the slice state
 interface InventoryItem {

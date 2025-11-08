@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { getPlaceholderImage } from "@/shared/lib/placeholder-images";
 
 export function UserNav() {
   const userAvatar = getPlaceholderImage("avatar-1");

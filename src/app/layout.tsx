@@ -3,8 +3,8 @@ import { Open_Sans, Roboto } from "next/font/google";
 import { AppShell } from "@/components/shared/app-shell";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import StoreProvider from "@/lib/redux/StoreProvider";
+import { cn } from "@/shared/lib/utils";
+import StoreProvider from "@/shared/lib/redux/StoreProvider";
 
 const openSans = Open_Sans({
   subsets: ["latin"],

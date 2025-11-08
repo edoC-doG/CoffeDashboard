@@ -15,7 +15,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: Home },
